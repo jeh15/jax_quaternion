@@ -31,5 +31,5 @@ testing = [
 [tool.setuptools.packages.find]
 include = [
     "jax_quaternion*",
-    "src",
+    "src*",
 ]
