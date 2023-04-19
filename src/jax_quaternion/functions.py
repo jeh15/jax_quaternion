@@ -112,7 +112,7 @@ def rotate(q: jax.typing.ArrayLike, v: jax.typing.ArrayLike) -> jax.Array:
 
 
 @jax.jit
-def jax_normalize(q: jax.typing.ArrayLike) -> jax.Array:
+def normalize(q: jax.typing.ArrayLike) -> jax.Array:
     # Implementation from: https://github.com/glotzerlab/rowan/blob/master/rowan/functions.py
     """
         Unit vector of quaternions q.
@@ -125,7 +125,7 @@ def jax_normalize(q: jax.typing.ArrayLike) -> jax.Array:
     return q / norms
 
 
-def numpy_normalize(q: numpy.typing.ArrayLike) -> np.ndarray:
+def _numpy_normalize(q: numpy.typing.ArrayLike) -> np.ndarray:
     # Implementation from: https://github.com/glotzerlab/rowan/blob/master/rowan/functions.py
     """
         Unit vector of quaternions q.
