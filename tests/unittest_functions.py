@@ -9,7 +9,7 @@ import jax.numpy as jnp
 import rowan
 from rowan.functions import _promote_vec as rowan_promote_vec
 
-import functions
+import jax_quaternion as jqt
 
 
 class TestQuaternionMath(absltest.TestCase):
