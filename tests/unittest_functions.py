@@ -7,7 +7,7 @@ import jax
 import jax.numpy as jnp
 
 import rowan
-from rowan.jqt import _promote_vec as rowan_promote_vec
+from rowan.functions import _promote_vec as rowan_promote_vec
 
 import jax_quaternion as jqt
 
@@ -79,8 +79,8 @@ class TestQuaternionMath(absltest.TestCase):
 
     def test_normalize(self):
         q = np.random.rand(10, 4)
-        result_1 = jqt.jax_normalize(q)
-        result_2 = jqt.numpy_normalize(q)
+        result_1 = jqt.normalize(q)
+        result_2 = jqt._numpy_normalize(q)
 
         # Rowan Result:
         true_value = rowan.normalize(q)
