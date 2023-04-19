@@ -23,3 +23,6 @@ testing = [
     "rowan",
     "absl-py",
 ]
+
+[tool.setuptools.packages.find]
+include = ["jax_quaternion*"]
