@@ -4,17 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jax_quaternion"
-version = "0.0.1"
-authors = [
-  { name="Example Author", email="author@example.com" },
-]
-description = "test package"
+version = "0.0.0"
+description = "WIP package for quaternion math with a JAX backend."
 readme = "README.md"
 requires-python = ">=3.7"
+license = {MIT}
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+    "Private :: Do Not Upload",
+    "Development Status :: 1 - Planning",
 ]
 dependencies = [
     "numpy>=1.12",
