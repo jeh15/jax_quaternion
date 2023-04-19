@@ -7,7 +7,7 @@ import jax
 import jax.numpy as jnp
 
 import rowan
-from rowan.functions import _promote_vec as rowan_promote_vec
+from rowan.jqt import _promote_vec as rowan_promote_vec
 
 import jax_quaternion as jqt
 
@@ -18,8 +18,8 @@ class TestQuaternionMath(absltest.TestCase):
         v = np.random.rand(10, 4)
 
         # Exponential Quaternion Function:
-        result_1 = functions.exp(v)
-        result_2 = functions.exp(v[0, :])
+        result_1 = jqt.exp(v)
+        result_2 = jqt.exp(v[0, :])
 
         # Rowan Result:
         true_value = rowan.exp(v)
@@ -37,7 +37,7 @@ class TestQuaternionMath(absltest.TestCase):
     def test_multiply(self):
         qi = np.random.rand(10, 4)
         qj = np.random.rand(10, 4)
-        result = functions.multiply(qi, qj)
+        result = jqt.multiply(qi, qj)
 
         # Rowan Result:
         true_value = rowan.multiply(qi, qj)
@@ -50,7 +50,7 @@ class TestQuaternionMath(absltest.TestCase):
 
     def test_promote_vector(self):
         v = np.random.rand(10, 3)
-        result = functions._jax_promote_vector(v)
+        result = jqt._jax_promote_vector(v)
 
         # Rowan Result:
         true_value = rowan_promote_vec(v)
@@ -66,7 +66,7 @@ class TestQuaternionMath(absltest.TestCase):
         q = q / np.linalg.norm(q, axis=-1)[..., np.newaxis]
         v = np.random.rand(10, 3)
         dt = 0.1
-        result = functions.integrate(q, v, dt)
+        result = jqt.integrate(q, v, dt)
 
         # Rowan Result:
         true_value = rowan.calculus.integrate(q, v, dt)
@@ -79,8 +79,8 @@ class TestQuaternionMath(absltest.TestCase):
 
     def test_normalize(self):
         q = np.random.rand(10, 4)
-        result_1 = functions.jax_normalize(q)
-        result_2 = functions.numpy_normalize(q)
+        result_1 = jqt.jax_normalize(q)
+        result_2 = jqt.numpy_normalize(q)
 
         # Rowan Result:
         true_value = rowan.normalize(q)
@@ -97,7 +97,7 @@ class TestQuaternionMath(absltest.TestCase):
 
     def test_conjugate(self):
         q = np.random.rand(10, 4)
-        result = functions.conjugate(q)
+        result = jqt.conjugate(q)
 
         # Rowan Result:
         true_value = rowan.conjugate(q)
@@ -111,7 +111,7 @@ class TestQuaternionMath(absltest.TestCase):
     def test_rotation(self):
         q = np.random.rand(10, 4)
         v = np.random.rand(10, 3)
-        result = functions.rotate(q, v)
+        result = jqt.rotate(q, v)
 
         # Rowan Result:
         true_value = rowan. rotate(q, v)
