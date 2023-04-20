@@ -9,7 +9,7 @@ To pip install use the following command:
 pip install git+https://github.com/jeh15/jax_quaternion.git
 ```
 
-If you want to run the tests that requires some extra dependencies which can be installed via:
+Running the tests requires some extra dependencies. These dependencies can be installed via:
 ```
 pip install "jax_quaternion[testing] @ git+https://github.com/jeh15/jax_quaternion.git"
 ```
